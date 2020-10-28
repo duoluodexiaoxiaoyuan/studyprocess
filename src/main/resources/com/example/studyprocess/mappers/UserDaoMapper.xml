@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.studyprocess.dao.UserDao">
+<!--    id就是dao的方法名一致-->
+    <select id="findByName"  parameterType="String" resultType="com.example.studyprocess.entity.User">
+        select * from user where username =#{username}
+    </select>
+<!--    这里插入数据的时候必须和数据库的每一个字段对应-->
+    <insert id="save" parameterType="com.example.studyprocess.entity.User" >
+        insert into user  values (#{id},#{username},#{password})
+    </insert>
+
+    <select id="findAll" resultType="com.example.studyprocess.entity.User">
+        select id ,username,password from user
+    </select>
+</mapper>
